@@ -6,7 +6,7 @@ class TimerContainer extends Component {
     render() { 
         return (
             <div>
-                <Timer start={60} exercise={"Exercise #1"} />
+                <Timer start={5} exercise={"Exercise #1"} />
             </div> 
         );
     }
