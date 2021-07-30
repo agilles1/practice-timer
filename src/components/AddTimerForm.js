@@ -19,9 +19,9 @@ export default class AddTimerForm extends React.Component {
         return (
             <form onSubmit = {this.handleSubmit}>
                 <label>Exercise</label>
-                <input type="text" name="exercise" value={this.state.exercise} onChange={this.handleChange}/>
+                <input type="text" name="exercise" value={this.state.exercise} onChange={this.handleChange.bind(this)}/>
                 <label>Seconds</label>
-                <input type="number" name="seconds" value={this.state.seconds} onChange={this.handleChange}/>
+                <input type="number" name="seconds" value={this.state.seconds} onChange={this.handleChange.bind(this)}/>
                 <button type="submit">+</button>
             </form>
         )
