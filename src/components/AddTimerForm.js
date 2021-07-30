@@ -3,12 +3,12 @@ import React from 'react'
 export default class AddTimerForm extends React.Component {
 
     state = {
-        excercise: "", 
+        exercise: "", 
         seconds: ""
     }
 
-    handleChange(){
-        debugger
+    handleChange(e) {
+        this.setState({[e.target.name]: e.target.value})
     }
 
     handleSubmit(){
@@ -19,9 +19,9 @@ export default class AddTimerForm extends React.Component {
         return (
             <form onSubmit = {this.handleSubmit}>
                 <label>Exercise</label>
-                <input type="text" value={this.state.excercise} onChange={this.handleChange}/>
+                <input type="text" name="exercise" value={this.state.exercise} onChange={this.handleChange}/>
                 <label>Seconds</label>
-                <input type="number" value={this.state.seconds} onChange={this.handleChanget}/>
+                <input type="number" name="seconds" value={this.state.seconds} onChange={this.handleChange}/>
                 <button type="submit">+</button>
             </form>
         )
