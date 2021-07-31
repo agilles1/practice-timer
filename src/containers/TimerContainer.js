@@ -5,19 +5,25 @@ import AddTimerForm from '../components/AddTimerForm'
 class TimerContainer extends Component {
 
     state = {
-        exercises: []
+        timers: [
+            {exercise: "Arban 1", start: 50}
+        ]
     }
 
     nextTimer(){
 
     }
 
+    
+
     render() { 
+
+        let timers = this.state.timers.map(timer => <Timer key={timer.index} exercise={timer.exercise} start={timer.start}/>);
+
         return (
             <div>
                 <AddTimerForm/>
-                <Timer start={5} exercise={"Exercise #1"} />
-                <Timer start={10} exercise={"Exercise #2"} />
+                {timers}
             </div> 
         );
     }
