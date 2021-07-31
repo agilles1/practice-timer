@@ -1,29 +1,15 @@
 import React from 'react'
 
-export default class AddTimerForm extends React.Component {
-
-    state = {
-        exercise: "", 
-        seconds: ""
-    }
-
-    handleChange(e) {
-        this.setState({[e.target.name]: e.target.value})
-    }
-
-    handleSubmit(){
-
-    }
-
-    render(){
+function AddTimerForm(props) {
         return (
-            <form onSubmit = {this.handleSubmit}>
+            <form>
                 <label>Exercise</label>
-                <input type="text" name="exercise" value={this.state.exercise} onChange={this.handleChange.bind(this)}/>
+                <input type="text" name="exercise" value={props.formValues.exercise} onChange={props.onChangeValue}/>
                 <label>Seconds</label>
-                <input type="number" name="seconds" value={this.state.seconds} onChange={this.handleChange.bind(this)}/>
+                <input type="number" name="seconds"/>
                 <button type="submit">+</button>
             </form>
         )
-    }
 }
+
+export default AddTimerForm
