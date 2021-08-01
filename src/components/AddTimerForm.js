@@ -2,7 +2,7 @@ import React from 'react'
 
 function AddTimerForm(props) {
         return (
-            <form>
+            <form onSubmit={props.onSubmitValue}>
                 <label>Exercise</label>
                 <input type="text" name="exercise" value={props.formValues.exercise} onChange={props.onChangeValue}/>
                 <label>Seconds</label>

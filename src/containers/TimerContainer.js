@@ -7,6 +7,7 @@ class TimerContainer extends Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
             formData: {
                 exercise: "",
@@ -17,10 +18,6 @@ class TimerContainer extends Component {
             ]};
       }
 
-    nextTimer(){
-
-    }
-
     handleChange(e) {
         this.setState(
             {formData:{
@@ -29,7 +26,22 @@ class TimerContainer extends Component {
     }
 
     handleSubmit(e) {
-        debugger
+        e.preventDefault()
+        let newExercise = this.state.formData
+        this.setState(
+            {timers:[
+                ...this.state.timers, newExercise]}
+        )
+        this.clearForm()
+    }
+
+    clearForm() {
+        this.setState(
+            {formData:{
+                exercise: "",
+                start: ""
+                }
+            })
     }
 
     render() { 
