@@ -4,17 +4,33 @@ import AddTimerForm from '../components/AddTimerForm'
 
 class TimerContainer extends Component {
 
-    state = {
-        timers: [
-            {exercise: "Arban 1", start: 50}
-        ]
-    }
+    constructor(props) {
+        super(props);
+        this.handleChange = this.handleChange.bind(this);
+        this.state = {
+            formData: {
+                exercise: "",
+                start: ""
+            },
+            timers: [
+                {exercise: "Arban 1", start: 50}
+            ]};
+      }
 
     nextTimer(){
 
     }
 
-    
+    handleChange(e) {
+        this.setState(
+            {formData:{
+                ...this.state.formData,
+                [e.target.name]: e.target.value}})
+    }
+
+    handleSubmit(e) {
+        debugger
+    }
 
     render() { 
 
@@ -22,7 +38,7 @@ class TimerContainer extends Component {
 
         return (
             <div>
-                <AddTimerForm/>
+                <AddTimerForm formValues={this.state.formData} onSubmitValue={this.handleSubmit} onChangeValue={this.handleChange}/>
                 {timers}
             </div> 
         );
