@@ -6,7 +6,7 @@ function AddTimerForm(props) {
                 <label>Exercise</label>
                 <input type="text" name="exercise" value={props.formValues.exercise} onChange={props.onChangeValue}/>
                 <label>Seconds</label>
-                <input type="number" name="seconds"/>
+                <input type="number" value={props.formValues.start} name="start" onChange={props.onChangeValue}/>
                 <button type="submit">+</button>
             </form>
         )
