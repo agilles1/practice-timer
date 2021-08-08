@@ -14,7 +14,7 @@ class TimerContainer extends Component {
                 start: ""
             },
             timers: [
-                {exercise: "Arban 1", start: 50}
+                {exercise: "Arban 1", start: 50, active: false}
             ]};
       }
 
@@ -35,6 +35,14 @@ class TimerContainer extends Component {
         this.clearForm()
     }
 
+    handleClick () {
+        let timers = [...this.state.timers];
+        let timer = {...timers[0]};
+        timer.active = true;
+        timers[0] = timer;
+        this.setState({timers: timers});
+    }
+
     clearForm() {
         this.setState(
             {formData:{
@@ -44,14 +52,19 @@ class TimerContainer extends Component {
             })
     }
 
+    startTimers(){
+       
+    }
+
     render() { 
 
-        let timers = this.state.timers.map(timer => <Timer key={timer.index} exercise={timer.exercise} start={timer.start}/>);
+        let timers = this.state.timers.map(timer => <Timer key={timer.index} active={timer.active} exercise={timer.exercise} start={timer.start}/>);
 
         return (
             <div>
                 <AddTimerForm formValues={this.state.formData} onSubmitValue={this.handleSubmit} onChangeValue={this.handleChange}/>
                 {timers}
+                <button onClick={this.handleClick.bind(this)}>Start</button>
             </div> 
         );
     }

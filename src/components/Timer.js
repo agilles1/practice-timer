@@ -3,12 +3,13 @@ import React from 'react'
 export default class Timer extends React.Component {
 
   state = {
-    time: this.props.start,
-    active: false
+    time: this.props.start
   }
 
   componentDidMount(){
-    if (this.state.active) { 
+    this.setState({active: this.props.active})
+    
+    if (this.props.active) { 
       setInterval(() => {
         this.setState({
           time: this.state.time - 1
